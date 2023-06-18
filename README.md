@@ -47,6 +47,108 @@ AWS Educate | AWS Academy
 signature_513042695
 ```
 
+## 실습 1 : IAM 소개
+[AWS labs](https://labs.vocareum.com/main/main.php)
+![image](https://github.com/chihyeonWON/Amazon_Web_Service/assets/58906858/43d7fba8-151b-47df-b005-7d08ddf5f164)
+```
+IAM 소개는 모듈에서 바로 안들어가질 수도 있으므로 위의 링크에서 진행한다. 
+```
+![image](https://github.com/chihyeonWON/Amazon_Web_Service/assets/58906858/19aa9806-5f84-46b2-b70d-fbdfacbbaea7)
+```
+AWS Identity and Access Management(IAM)는 Amazon Web Services(AWS) 고객이 AWS에서 사용자와 사용자 권한을 관리할 때 사용할 수 있는 서비스입니다. IAM을 사용하면 사용자, 보안 자격 증명(예: 액세스 키) 및 사용자가 액세스할 수 있는 AWS 리소스를 제어하는 권한을 중앙에서 관리할 수 있습니다.
+```
+
+## AWS Management Console 엑세스
+```
+지침의 맨 위에서 Start Lab을 클릭하여 실습을 시작합니다.
+
+Start Lab 패널이 열리고 실습 상태가 표시됩니다. Start Lab 대화 상자가 열리면 이 실습 뒷부분에서 참조해야 하므로 AWS 리전을 적어둡니다.
+
+“Lab status: ready” 메시지가 표시되면 X를 클릭하여 Start Lab 패널을 닫습니다.
+
+지침의 맨 위에서 AWS를 클릭합니다.
+
+그러면 새 브라우저 탭에서 AWS Management Console이 열립니다. 시스템에서 자동으로 로그인합니다.
+
+팁: 새 브라우저 탭이 열리지 않는 경우 일반적으로 브라우저에서 팝업 창을 열 수 없음을 나타내는 배너 또는 아이콘이 브라우저 상단에 표시됩니다. 배너 또는 아이콘을 클릭하고 Allow pop ups를 선택합니다.
+
+이러한 지침이 나란히 표시되도록 AWS Management Console 탭을 정렬합니다. 두 브라우저 탭이 동시에 표시되어 실습 단계를 보다 쉽게 수행할 수 있게 됩니다.
+```
+
+## 사용자 및 그룹 살펴보기
+```
+AWS Management Console의 Services 메뉴에서 IAM을 클릭합니다.
+
+왼쪽 탐색 창에서 Users를 클릭합니다.
+
+다음 IAM 사용자가 미리 생성되어 있습니다.
+
+user-1
+user-2
+user-3
+user-1을 클릭합니다.
+
+user-1에 대한 요약 페이지가 표시됩니다. Permissions 탭이 표시됩니다.
+
+user-1에는 권한이 없습니다.
+
+Groups 탭을 클릭합니다.
+
+user-1은 그룹의 구성원이 아닙니다.
+
+Security credentials 탭을 선택합니다.
+
+   user-1에 콘솔 암호가 할당됩니다.
+
+왼쪽 탐색 창에서 Groups를 클릭합니다.
+   다음 그룹이 이미 생성되어 있습니다.
+
+EC2-Admin
+EC2-Support
+S3-Support
+EC2-Support 그룹을 클릭합니다.
+   EC2-Support 그룹에 대한 요약 페이지로 이동합니다.
+
+Permissions 탭을 클릭합니다.
+   이 그룹에는 AmazonEC2ReadOnlyAccess라는 관리형 정책이 연결되어 있습니다. 관리형 정책은 IAM 사용자 및 그룹에 연결할 수 있는 사전 구성된 정책입니다(AWS 또는 관리자가 작성). 정책이 업데이트되면 정책에 대한 변경 사항이 정책에 연결된 모든 사용자 및 그룹에 즉시 적용됩니다.
+
+Actions에서 Show Policy 링크를 클릭합니다.
+   정책은 특정 AWS 리소스에 대해 허용되거나 거부되는 작업을 정의합니다. 이 정책은 EC2, Elastic Load Balancing, CloudWatch 및 Auto Scaling에 대한 정보를 나열하고 설명할 수 있는 권한을 부여합니다. 리소스를 볼 수 있지만 수정할 수 없는 이 기능은 지원 역할에 할당하기에 적합합니다.
+
+   IAM 정책에서 문의 기본 구조는 다음과 같습니다.
+
+Effect는 권한을 허용할지 거부할지를 말합니다.
+Action은 AWS 서비스에 수행할 수 있는 API 호출을 지정합니다(예: cloudwatch:ListMetrics).
+Resource는 정책 규칙이 적용되는 엔터티의 범위를 정의합니다(예: 특정 Amazon S3 버킷 또는 Amazon EC2 인스턴스 또는 모든 리소스를 나타내는 *).
+Show Policy 창을 닫습니다.
+왼쪽 탐색 창에서 Groups를 클릭합니다.
+S3-Support 그룹을 클릭합니다.
+   S3-Support 그룹에는 AmazonS3ReadOnlyAccess 정책이 연결되어 있습니다.
+
+Actions 메뉴 아래에서 Show Policy 링크를 클릭합니다.
+   이 정책에는 Amazon S3의 리소스를 가져오고 나열할 수 있는 권한이 있습니다.
+
+Show Policy 창을 닫습니다.
+왼쪽 탐색 창에서 Groups를 클릭합니다.
+EC2-Admin 그룹을 클릭합니다.
+   이 그룹은 다른 두 그룹과 약간 다릅니다. 여기에는 Managed Policy 대신 하나의 사용자 또는 그룹에만 할당되는 정책인 Inline Policy가 있습니다. 인라인 정책은 일반적으로 일회성 상황에 대한 권한을 적용하는 데 사용됩니다.
+
+Actions에서 Show Policy를 클릭하여 정책을 봅니다.
+   이 정책은 Amazon EC2에 대한 정보를 볼 수 있는 권한(Describe)과 인스턴스를 시작하고 중지할 수 있는 기능도 부여합니다.
+
+화면 하단에서 Cancel을 클릭하여 정책을 닫습니다.
+```
+![image](https://github.com/chihyeonWON/Amazon_Web_Service/assets/58906858/3edfe61f-3047-4542-8951-f6782719de96)
+![image](https://github.com/chihyeonWON/Amazon_Web_Service/assets/58906858/c1e3ecff-9600-4d96-bd0f-64fd54c8ae5c)
+![image](https://github.com/chihyeonWON/Amazon_Web_Service/assets/58906858/f3bbfbad-c137-4dc8-b150-9274cc23d91c)
+![image](https://github.com/chihyeonWON/Amazon_Web_Service/assets/58906858/63e67b04-9249-4e89-964b-7b771c71071c)
+
+## 실습 1 IAM 살펴보기 종료
+![image](https://github.com/chihyeonWON/Amazon_Web_Service/assets/58906858/728f93bf-485a-4eb0-b631-71e9ff39f403)
+```
+소요시간 1시간 30분
+```
+
 ## 실습 2: VPC 구축 및 웹 서버 시작
 ![image](https://github.com/chihyeonWON/Amazon_Web_Service/assets/58906858/1b7a8ccd-2be1-424e-a165-b419a6893fcf)
 ```
