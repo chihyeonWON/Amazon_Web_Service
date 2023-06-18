@@ -231,3 +231,9 @@ Create VPC을 클릭합니다.
 ```
 1시간 30
 ```
+
+## AWS Academy Cloud Foundation 모듈 1 ~ 10 사전지식 평점
+![image](https://github.com/chihyeonWON/Amazon_Web_Service/assets/58906858/29540122-2ed4-4a1f-ae32-8d667b9d299a)
+```
+모듈1~10까지의 평점 100.0으로 갱신
+```
