@@ -124,3 +124,8 @@ Create VPC을 클릭합니다.
 ```
 ![image](https://github.com/chihyeonWON/Amazon_Web_Service/assets/58906858/1d5d8281-05fc-4fb0-8309-ebdbdb68f641)
 
+## 모듈 5 VPC 생성 실습 종료
+![image](https://github.com/chihyeonWON/Amazon_Web_Service/assets/58906858/af1faa11-e2c2-4705-a693-4613d1830ab2)
+```
+1시간 30
+```
